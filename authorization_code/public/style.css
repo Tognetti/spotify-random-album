@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 690px;
+}
+
+.album-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.form-select {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.icon {
+    width: 28px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#description {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#btn-refresh {
+    margin-top: 15px;
+}
+
+#login, #loggedin, #btn-refresh {
+    display: none;
+}
+
+#loggedin, #login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#albums {
+    margin-top: 50px;
+}
+
+.footer {
+    margin-top: 100px;
+}
+
+.tracklist {
+    list-style-type: none;
+    text-align: left;
+}
+
+.total-length {
+    margin-top: 10px;
+}
+
+li div {
+    text-align: right;
+}
+
+li div span {
+    float: left;
+    margin-right: 7px;
+}
+
+#loader {
+    margin-top: 30px;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

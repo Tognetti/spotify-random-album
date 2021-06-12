@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Random Spotify Album</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <h3>Random Spotify Album</h3>
+
+    <div id="login">
+      <p id="description">
+        After logging in with your Spotify account a random saved album from your library will be shown.
+      </p>
+      <a href="/login" class="btn btn-success">Log in with Spotify</a>
+    </div>
+
+    <div id="loggedin">
+      <a id="btn-refresh" class="btn btn-success" onclick="refreshAlbum()">Pick another one!</a>
+      <div id="loader"></div>
+      <div id="albums"></div>
+    </div>
+
+    <div class="footer">
+      <p>Created by Adolfo Tognetti</a></p>
+      <a href="https://www.github.com/Tognetti" target="_blank"><img src="github-icon.png" class="icon"></a>
+      <a href="https://www.linkedin.com/in/adolfotognetti" target="_blank"><img src="linkedin-icon.png" class="icon"></a>
+    </div>
+  </div>
+
+  <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

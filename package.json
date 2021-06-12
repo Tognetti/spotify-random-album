@@ -1,0 +1,19 @@
+{
+  "author": "Adolfo Tognetti",
+  "name": "spotify-random-album",
+  "description": "Shows the user a random album from their Spotify library",
+  "version": "0.0.1",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.4",
+    "express": "~4.16.0",
+    "querystring": "~0.2.0",
+    "request": "^2.88.2"
+  },
+  "scripts": {
+    "start": "node authorization_code/app.js"
+  },
+  "engines": {
+    "node": "16.3.0"
+  }
+}
