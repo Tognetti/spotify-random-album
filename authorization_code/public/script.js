@@ -6,13 +6,13 @@ function refreshAlbum() {
 
     let p = document.createElement('p');
     p.className = 'album-title';
-    p.innerText = random['artistName'] + ' - ' + random['albumName'];
+    p.innerText = random.artistName + ' - ' + random.albumName;
 
     let img = document.createElement('img');
-    img.src = random['albumCover'];
+    img.src = random.albumCover;
 
     let a = document.createElement('a');
-    a.setAttribute("href", random['albumURL']);
+    a.setAttribute("href", random.albumURL);
     a.setAttribute("target", '_blank');
     a.setAttribute('class', 'link-success');
 
@@ -26,14 +26,14 @@ function refreshAlbum() {
     let ul = document.createElement('ul');
     ul.className = 'tracklist';
 
-    random['tracks'].forEach(track => {
+    random.tracks.forEach(track => {
         let li = document.createElement('li');
-        li.innerHTML = '<div><span><b>' + track['number'] + '. ' + '</b>' + track['name'] + ' ' + '</span>' + formatMilliseconds(track['length'], true) + '</div>';
+        li.innerHTML = '<div><span><b>' + track.number + '. ' + '</b>' + track.name + ' ' + '</span>' + formatMilliseconds(track.length, true) + '</div>';
         ul.appendChild(li);
     });
     let li = document.createElement('li');
     li.setAttribute('class', 'total-length');
-    li.innerHTML = '<div><span>Length:</span> ' + formatMilliseconds(random['albumLength'], true) + '</div>';
+    li.innerHTML = '<div><span>Total:</span> ' + formatMilliseconds(random.albumLength, true) + '</div>';
     ul.appendChild(li);
 
     albums_div.appendChild(ul);
@@ -78,19 +78,22 @@ function formatMilliseconds(milliseconds, padStart) {
 
     function saveAlbumData(albums) {
         albums.items.forEach(element => {
-            let albumData = [];
-            albumData['artistName'] = element.album.artists[0].name;
-            albumData['albumName'] = element.album.name;
-            albumData['albumURL'] = element.album.external_urls.spotify;
-            albumData['albumCover'] = element.album.images[1].url;
-            albumData['tracks'] = [];
+            let albumData = {
+                'artistName': element.album.artists[0].name,
+                'albumName': element.album.name,
+                'albumURL': element.album.external_urls.spotify,
+                'albumCover': element.album.images[1].url,
+                'tracks': [],
+            };
+
             let lengthCount = 0;
             element.album.tracks.items.forEach(track => {
-                let trackInfo = [];
-                trackInfo['number'] = track.track_number;
-                trackInfo['length'] = track.duration_ms;
+                let trackInfo = {
+                    'number': track.track_number,
+                    'length': track.duration_ms,
+                    'name': track.name,
+                };
                 lengthCount += track.duration_ms;
-                trackInfo['name'] = track.name;
                 albumData['tracks'].push(trackInfo);
             });
             albumData['albumLength'] = lengthCount;
@@ -104,6 +107,7 @@ function formatMilliseconds(milliseconds, padStart) {
             refreshAlbum();
             $('#loader').hide();
             $('#btn-refresh').show();
+            console.log("Total albuns: " + albumList.length);
         }
     }
 
