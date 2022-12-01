@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var port = process.env.PORT || 8888
 var client_id = 'ddedf3a9d05c4b758afce3a30527b634'; // Your client id
 var client_secret = process.env.SPOTIFY_SECRET_KEY; // Your secret
-var redirect_uri = 'https://spotify-random-album.herokuapp.com/callback'; // Your redirect uri
+var redirect_uri = 'https://spotify-random-album.up.railway.app/callback'; // Your redirect uri
 //var redirect_uri = `http://localhost:${port}/callback`; // Your redirect uri
 
 /**
